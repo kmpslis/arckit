@@ -291,8 +291,9 @@ C4Container
 | Requirement | Target | Component(s) | How Achieved |
 |-------------|--------|--------------|--------------|
 | NFR-A-001: Uptime | 99.9% (44 min downtime/month) | All | RDS Multi-AZ automatic failover (< 60s); ElastiCache Multi-AZ; ECS health checks with replacement; ALB cross-AZ routing |
-| RTO | < 4 hours | Task Database | RDS automated failover < 60s; RDS point-in-time restore for data corruption < 4h |
-| RPO | < 15 minutes | Task Database | RDS automated backups (daily snapshot + transaction logs); ElastiCache data is ephemeral (acceptable data loss) |
+| RTO — Standard failover | < 15 minutes | All | RDS Multi-AZ automatic failover (60–120s) + ECS health-check detection (60s) + new task startup (60s) + ALB target registration (30s) + connection pool re-establishment (10s) = ≈ 4–6 min typical; < 15 min worst-case. Meets NFR-A-002 (≤ 30 min). |
+| RTO — Data corruption (PITR) | < 4 hours | Task Database | RDS point-in-time restore to a clean snapshot for logical data corruption; separate DR scenario, not the standard availability RTO. Worst-case full-restore SLA only. |
+| RPO | < 1 hour | Task Database | RDS continuous WAL shipping (near-real-time, sub-5-min lag in practice) + daily snapshot. Meets NFR-A-002 (≤ 1 hour). ElastiCache data is ephemeral (acceptable loss per design). |
 | SSE reconnection | 0% missed events | API Server, Cache | Browser EventSource auto-reconnect with `Last-Event-ID`; Redis Streams replay for missed events |
 
 ---

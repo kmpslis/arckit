@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-10T00:00:00Z",
+  "generated": "2026-03-11T18:30:00Z",
   "repository": {
     "name": "arckit"
   },
@@ -617,6 +617,24 @@
           "title": "Data Model",
           "category": "Architecture",
           "documentId": "ARC-001-DATA-v1.0"
+        },
+        {
+          "path": "projects/001-task-management-portal/ARC-001-STORY-v1.0.md",
+          "title": "Project Story",
+          "category": "Other",
+          "documentId": "ARC-001-STORY-v1.0"
+        },
+        {
+          "path": "projects/001-task-management-portal/ARC-001-STORY-v1.1.md",
+          "title": "Project Story (Updated)",
+          "category": "Other",
+          "documentId": "ARC-001-STORY-v1.1"
+        },
+        {
+          "path": "projects/001-task-management-portal/ARC-001-PRES-v1.0.md",
+          "title": "Architecture Presentation",
+          "category": "Other",
+          "documentId": "ARC-001-PRES-v1.0"
         }
       ],
       "diagrams": [
@@ -653,7 +671,18 @@
           "documentId": "ARC-001-DMC-001-v1.0"
         }
       ],
-      "reviews": [],
+      "reviews": [
+        {
+          "path": "projects/001-task-management-portal/ARC-001-HLDR-v1.0.md",
+          "title": "High-Level Design Review",
+          "documentId": "ARC-001-HLDR-v1.0"
+        },
+        {
+          "path": "projects/001-task-management-portal/ARC-001-DLDR-v1.0.md",
+          "title": "Detailed Design Review",
+          "documentId": "ARC-001-DLDR-v1.0"
+        }
+      ],
       "vendors": [],
       "vendorProfiles": [
         {
